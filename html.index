@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Branding Kit</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts Setup -->
+    <!-- Google Fonts: Inter, IBM Plex Sans, Work Sans, Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Pretendard (via CDN) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Font Classes matching the prompt */
+        .font-set-a-en { font-family: 'Inter', sans-serif; }
+        .font-set-a-kr { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
+        
+        .font-set-b-en { font-family: 'IBM Plex Sans', sans-serif; }
+        .font-set-b-kr { font-family: 'Noto Sans KR', sans-serif; }
+        
+        .font-set-c-en { font-family: 'Work Sans', sans-serif; }
+        .font-set-c-kr { font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', sans-serif; } /* Fallback to Noto if Spoqa isn't loaded locally, but styling matches the vibe */
+
+        /* Color Variables for easy reference within Tailwind config if needed, but used inline for clarity */
+        :root {
+            --bg-soft-ivory: #F6F3EE;
+            --text-main: #151821;
+        }
+
+        body {
+            background-color: var(--bg-soft-ivory);
+            color: var(--text-main);
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif; /* Default fallback */
+        }
+
+        .color-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 50;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast shadow-lg">Hex Code Copied!</div>
+
+    <!-- Header / Hero Section -->
+    <header class="w-full py-16 px-6 md:px-12 lg:px-24 bg-[#F6F3EE] border-b border-[#D3B792]/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div>
+                    <div class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider uppercase text-[#365A72] bg-[#365A72]/10 rounded-full">Brand Identity System</div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-[#20293A] tracking-tight mb-3">
+                        Deep Focus & <span class="text-[#D67B68]">Warm Connection</span>
+                    </h1>
+                    <p class="text-lg text-[#4F7D73] max-w-2xl">
+                        깊이 있는 분석과 따뜻한 스토리텔링이 만나는 지점. <br>
+                        이성적인 구조 설계자와 감성적인 조율자를 위한 비주얼 가이드라인입니다.
+                    </p>
+                </div>
+                <div class="text-right hidden md:block">
+                    <p class="text-sm text-[#23252B] opacity-60">Created for</p>
+                    <p class="font-semibold text-[#151821]">Strategic Storyteller</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12 space-y-20">
+
+        <!-- SECTION 1: Color Palette -->
+        <section>
+            <div class="flex items-center gap-2 mb-8">
+                <i data-lucide="palette" class="text-[#365A72]"></i>
+                <h2 class="text-2xl font-bold text-[#151821]">Color Palette</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                
+                <!-- 1. Deep Ink Blue -->
+                <div onclick="copyToClipboard('#20293A')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#20293A] relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-white/0 group-hover:text-white/100 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#20293A]">Deep Ink Blue</h3>
+                            <span class="font-mono text-xs text-gray-400">#20293A</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">깊이 파고들고 구조적으로 생각하는 "심야 도서관/스튜디오" 같은 집중 에너지.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Steel Blue -->
+                <div onclick="copyToClipboard('#365A72')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#365A72] relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-white/0 group-hover:text-white/100 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#365A72]">Steel Blue</h3>
+                            <span class="font-mono text-xs text-gray-400">#365A72</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">차분하고 이성적인 분석, 시스템/조직/법 구조를 설계하는 전략가 느낌.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Eucalyptus Teal -->
+                <div onclick="copyToClipboard('#4F7D73')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#4F7D73] relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-white/0 group-hover:text-white/100 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#4F7D73]">Eucalyptus Teal</h3>
+                            <span class="font-mono text-xs text-gray-400">#4F7D73</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">사람·조직·변화 사이를 이어주는 조율자, 실용적인 공감과 회복력.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Ochre Sand -->
+                <div onclick="copyToClipboard('#D3B792')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#D3B792] relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-white/0 group-hover:text-white/100 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#D3B792]">Ochre Sand</h3>
+                            <span class="font-mono text-xs text-gray-400">#D3B792</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">교육, 스토리텔링, 에듀테인먼트, "배움을 나누는 사람"이라는 따뜻한 베이스.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Muted Coral -->
+                <div onclick="copyToClipboard('#D67B68')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#D67B68] relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-white/0 group-hover:text-white/100 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#D67B68]">Muted Coral</h3>
+                            <span class="font-mono text-xs text-gray-400">#D67B68</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">야망, 창업/프로덕트 아이디어, 세계 1등·브랜딩 얘기할 때 드러나는 은근한 불꽃.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Soft Ivory White (Background) -->
+                <div onclick="copyToClipboard('#F6F3EE')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#F6F3EE] border-b border-gray-100 relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-black/0 group-hover:text-black/50 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#23252B]">Soft Ivory</h3>
+                            <span class="font-mono text-xs text-gray-400">#F6F3EE</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">살짝 따뜻한 아이보리 화이트, 전체 팔레트를 부드럽게 묶어주는 메인 배경색.</p>
+                    </div>
+                </div>
+
+                 <!-- 7. Cool Cloud White -->
+                 <div onclick="copyToClipboard('#F9FAFB')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#F9FAFB] border-b border-gray-100 relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-black/0 group-hover:text-black/50 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#365A72]">Cool Cloud</h3>
+                            <span class="font-mono text-xs text-gray-400">#F9FAFB</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">쿨톤 베이스를 살려주는 세컨 배경색, 블루/틸를 더 또렷하게 보여줌.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Ink Charcoal Black -->
+                <div onclick="copyToClipboard('#151821')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#151821] relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-white/0 group-hover:text-white/100 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#151821]">Ink Charcoal</h3>
+                            <span class="font-mono text-xs text-gray-400">#151821</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">완전 블랙보다 살짝 부드러운 쿨 차콜, 본문 텍스트/로고에 어울리는 메인 다크톤.</p>
+                    </div>
+                </div>
+
+                 <!-- 9. Soft Charcoal -->
+                 <div onclick="copyToClipboard('#23252B')" class="color-card group bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col">
+                    <div class="h-32 w-full bg-[#23252B] relative flex items-center justify-center group-hover:bg-opacity-95 transition">
+                        <span class="text-white/0 group-hover:text-white/100 font-medium transition-all duration-300">Click to Copy</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-[#23252B]">Soft Charcoal</h3>
+                            <span class="font-mono text-xs text-gray-400">#23252B</span>
+                        </div>
+                        <p class="text-sm text-[#23252B] leading-relaxed">대비를 조금 낮춘 서브 다크톤, 서브 텍스트·섹션 헤더에 쓰기 좋은 색.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: Typography Sets -->
+        <section>
+            <div class="flex items-center gap-2 mb-8">
+                <i data-lucide="type" class="text-[#365A72]"></i>
+                <h2 class="text-2xl font-bold text-[#151821]">Typography Sets</h2>
+            </div>
+
+            <div class="space-y-12">
+                
+                <!-- Set A -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col md:flex-row gap-8">
+                    <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-100 pb-6 md:pb-0 md:pr-6">
+                        <span class="px-2 py-1 text-xs font-bold bg-[#20293A] text-white rounded mb-2 inline-block">Set A</span>
+                        <h3 class="text-xl font-bold mb-1">Product & System</h3>
+                        <p class="text-sm text-gray-500 mb-4">현대적, 중립, 탄탄한 기본기</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span>ENG</span>
+                                <span class="font-mono text-gray-400">Inter</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>KOR</span>
+                                <span class="font-mono text-gray-400">Pretendard</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-xs text-gray-400">
+                            <p>추천: 포트폴리오, 노션 스타일 웹, 대시보드</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview Area -->
+                    <div class="w-full md:w-2/3 font-set-a-kr text-[#151821]">
+                        <div class="font-set-a-en text-3xl font-bold mb-4 tracking-tight">Building Scalable Systems</div>
+                        <p class="text-lg leading-relaxed mb-4">
+                            우리는 복잡한 문제를 <span class="font-bold text-[#365A72]">구조적 사고</span>를 통해 해결합니다. 
+                            Deep analysis creates the foundation for sustainable growth.
+                        </p>
+                        <div class="flex gap-3">
+                            <button class="px-4 py-2 bg-[#20293A] text-white rounded-md text-sm font-medium font-set-a-en">View Project</button>
+                            <button class="px-4 py-2 bg-white border border-[#20293A] text-[#20293A] rounded-md text-sm font-medium font-set-a-kr">자세히 보기</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set B -->
+                <div class="bg-[#F9FAFB] rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col md:flex-row gap-8">
+                    <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-200 pb-6 md:pb-0 md:pr-6">
+                        <span class="px-2 py-1 text-xs font-bold bg-[#365A72] text-white rounded mb-2 inline-block">Set B</span>
+                        <h3 class="text-xl font-bold mb-1">Legal & Research</h3>
+                        <p class="text-sm text-gray-500 mb-4">이성적, 테크니컬, 신뢰감</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span>ENG</span>
+                                <span class="font-mono text-gray-400">IBM Plex Sans</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>KOR</span>
+                                <span class="font-mono text-gray-400">Noto Sans KR</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-xs text-gray-400">
+                            <p>추천: 리걸 에세이, 리포트, 케이스 스터디</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview Area -->
+                    <div class="w-full md:w-2/3 font-set-b-kr text-[#151821]">
+                        <div class="font-set-b-en text-3xl font-semibold mb-4">Strategic Analysis 01</div>
+                        <p class="text-lg leading-relaxed mb-4 text-[#23252B]">
+                            데이터와 법적 근거를 바탕으로 <span class="text-[#365A72] bg-[#365A72]/10 px-1">논리적 구조</span>를 설계합니다.
+                            <span class="block mt-2 font-set-b-en text-sm text-gray-500">Reference: Article 42, Section 3 regarding system architecture.</span>
+                        </p>
+                        <div class="flex gap-3">
+                            <div class="px-4 py-2 border-l-4 border-[#D3B792] bg-white text-sm text-gray-600 italic">
+                                "Logic is the anatomy of thought."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set C -->
+                <div class="bg-[#F6F3EE] rounded-2xl p-8 border border-[#D3B792]/30 shadow-sm flex flex-col md:flex-row gap-8 relative overflow-hidden">
+                    <!-- Decorative background element -->
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-[#D67B68] rounded-full opacity-10 blur-2xl pointer-events-none"></div>
+
+                    <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-[#D3B792]/20 pb-6 md:pb-0 md:pr-6 z-10">
+                        <span class="px-2 py-1 text-xs font-bold bg-[#D67B68] text-white rounded mb-2 inline-block">Set C</span>
+                        <h3 class="text-xl font-bold mb-1">Edutainment</h3>
+                        <p class="text-sm text-gray-500 mb-4">친근함, 스토리텔링, 가독성</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span>ENG</span>
+                                <span class="font-mono text-gray-400">Work Sans</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>KOR</span>
+                                <span class="font-mono text-gray-400">Spoqa / Noto</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-xs text-gray-400">
+                            <p>추천: 교육 프로그램, 브랜딩 랜딩, 뉴스레터</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview Area -->
+                    <div class="w-full md:w-2/3 font-set-c-kr text-[#151821] z-10">
+                        <div class="font-set-c-en text-3xl font-bold mb-4 text-[#D67B68]">Share Your Story</div>
+                        <p class="text-lg leading-relaxed mb-4">
+                            배움을 나누는 과정은 언제나 즐거워야 합니다. 당신의 <span class="border-b-2 border-[#D3B792]">경험과 인사이트</span>가 누군가에게는 등대가 됩니다.
+                        </p>
+                        <div class="flex gap-3 mt-6">
+                            <button class="px-6 py-3 bg-[#D67B68] text-white rounded-full text-sm font-semibold hover:bg-[#C56A59] transition shadow-md flex items-center gap-2">
+                                이야기 시작하기 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- SECTION 3: Application Examples -->
+        <section class="pb-12">
+            <div class="flex items-center gap-2 mb-8">
+                <i data-lucide="layout" class="text-[#365A72]"></i>
+                <h2 class="text-2xl font-bold text-[#151821]">UI Components</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Primary Action -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 flex flex-col items-center justify-center gap-4 shadow-sm">
+                    <span class="text-xs font-mono text-gray-400">Primary Action (Coral)</span>
+                    <button class="w-full bg-[#D67B68] hover:bg-[#c56a59] text-white font-bold py-3 px-4 rounded-lg shadow-md transition transform active:scale-95 font-set-c-en">
+                        Start Learning
+                    </button>
+                    <button class="w-full bg-[#20293A] hover:bg-[#2f3a4d] text-white font-medium py-3 px-4 rounded-lg transition font-set-a-en">
+                        View Dashboard
+                    </button>
+                </div>
+
+                <!-- Card 2: Tags & Badges -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 flex flex-col items-center justify-center gap-4 shadow-sm">
+                    <span class="text-xs font-mono text-gray-400">Tags & Status (Teal/Sand/Blue)</span>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-[#4F7D73]/10 text-[#4F7D73] px-3 py-1 rounded-full text-sm font-medium border border-[#4F7D73]/20">Connected</span>
+                        <span class="bg-[#D3B792]/10 text-[#9c825e] px-3 py-1 rounded-full text-sm font-medium border border-[#D3B792]/20">Storytelling</span>
+                        <span class="bg-[#365A72]/10 text-[#365A72] px-3 py-1 rounded-full text-sm font-medium border border-[#365A72]/20">Analytical</span>
+                    </div>
+                </div>
+
+                 <!-- Card 3: Typography Contrast -->
+                 <div class="bg-[#20293A] p-6 rounded-xl border border-[#20293A] flex flex-col justify-center gap-2 shadow-sm">
+                    <span class="text-xs font-mono text-gray-400 mb-2">Dark Mode / Footer Contrast</span>
+                    <h4 class="text-[#F6F3EE] font-bold text-lg">Deep Focus Zone</h4>
+                    <p class="text-[#F9FAFB]/70 text-sm">
+                        어두운 배경에서는 Ivory White와 Cloud White가 가독성을 높여줍니다.
+                    </p>
+                    <a href="#" class="text-[#D3B792] text-sm mt-2 hover:underline decoration-[#D3B792] underline-offset-4">Read More &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#151821] text-[#F6F3EE]/60 py-12 border-t border-[#23252B]">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="mb-4">
+                <span class="text-[#D67B68] font-bold text-xl">Brand Kit</span>
+            </div>
+            <p class="text-sm mb-8 max-w-md mx-auto">
+                This branding guideline is designed to balance structure with warmth. 
+                <br>Use it to build systems that connect people.
+            </p>
+            <div class="flex justify-center gap-4 text-xs font-mono text-[#F6F3EE]/30">
+                <span>Inter</span>
+                <span>•</span>
+                <span>IBM Plex Sans</span>
+                <span>•</span>
+                <span>Work Sans</span>
+                <span>•</span>
+                <span>Pretendard</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Clipboard functionality
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast(`Copied: ${text}`);
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = "toast show shadow-lg";
+            
+            setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
